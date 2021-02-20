@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Processor\StockPrices_xSmall.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="StockPrices_xSmall.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
