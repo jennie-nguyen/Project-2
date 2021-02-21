@@ -21,5 +21,20 @@ namespace ParallelLinqExample.Core.Processor
             Assert.Equal("AAP",result.ticker);
             Assert.Equal(100.21m,result.price);
         }
+
+        [Fact]
+        public void ShouldReturnCountOfStockList()
+        {
+            var myStockListHistory = new StockListHistory("StockPrices_xSmall.csv");
+
+            //Act
+            int result = myStockListHistory.StockPrices.Count;
+
+            //Assert
+            Assert.NotNull(myStockListHistory);
+            Assert.Equal(207, result);
+            
+
+        }
     }
 }
