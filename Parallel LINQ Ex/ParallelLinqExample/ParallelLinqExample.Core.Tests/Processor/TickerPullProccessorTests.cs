@@ -32,9 +32,33 @@ namespace ParallelLinqExample.Core.Processor
 
             //Assert
             Assert.NotNull(myStockListHistory);
-            Assert.Equal(207, result);
-            
+            Assert.Equal(207, result);   
+        }
 
+        [Fact]
+        public void ShouldReturnCountOfStockList2()
+        {
+            var myStockListHistory = new StockListHistory("StockPrices_Small.csv");
+
+            //Act
+            int result = myStockListHistory.StockPrices.Count;
+
+            //Assert
+            Assert.NotNull(myStockListHistory);
+            Assert.Equal(95366, result);
+        }
+
+        [Fact]
+        public void ShouldReturnCountOfTiker()
+        {
+            var myStockListHistory = new StockListHistory("StockPrices_Small.csv");
+
+            //Act
+            int result = myStockListHistory.getTickerStockPrices("TSLA");
+
+            //Assert
+            Assert.NotNull(myStockListHistory);
+            Assert.Equal(41, result);
         }
     }
 }

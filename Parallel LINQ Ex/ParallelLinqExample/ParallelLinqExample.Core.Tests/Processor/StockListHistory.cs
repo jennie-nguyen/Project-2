@@ -22,9 +22,31 @@ namespace ParallelLinqExample.Core.Processor
                 while (!parser.EndOfData)
                 {
                     string[] indRecord = parser.ReadFields();
-                    stockPrices.Add(new StockPrice(indRecord[0], Convert.ToDecimal(indRecord[1])));
+                    if (indRecord.Length == 6)
+                    {
+                        stockPrices.Add(new StockPrice
+                            (
+                                indRecord[0],
+                                DateTime.Parse(indRecord[1]),
+                                Convert.ToDecimal(indRecord[2]),
+                                Convert.ToDouble(indRecord[3]),
+                                Convert.ToDouble(indRecord[4]),
+                                Convert.ToDouble(indRecord[5])
+                               )
+                            );
+                    }
+                    else
+                    {
+                        stockPrices.Add(new StockPrice(indRecord[0], Convert.ToDecimal(indRecord[1])));
+                    }
+
                 }
             }
+        }
+
+        internal int getTickerStockPrices(string v)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerator GetEnumerator()

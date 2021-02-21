@@ -22,6 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="StockPrices_Small.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="StockPrices_xSmall.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
