@@ -60,5 +60,18 @@ namespace ParallelLinqExample.Core.Processor
             Assert.NotNull(myStockListHistory);
             Assert.Equal(41, result);
         }
+
+        [Fact]
+        public void ShouldReturnCountOfTikerParallel()
+        {
+            var myStockListHistory = new StockListHistory("StockPrices_Small.csv");
+
+            //Act
+            int result = myStockListHistory.getTickerStockPricesParallel("TSLA");
+
+            //Assert
+            Assert.NotNull(myStockListHistory);
+            Assert.Equal(41, result);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ParallelLinqExample.Core.Processor
 {
@@ -44,14 +45,28 @@ namespace ParallelLinqExample.Core.Processor
             }
         }
 
-        internal int getTickerStockPrices(string v)
+        public int getTickerStockPrices(string symbol)
         {
-            throw new NotImplementedException();
+            IEnumerable<StockPrice> tickerPull =
+                 from s in StockPrices
+                 where s.ticker == symbol
+                 select s;
+            return tickerPull.Count();
+        }
+
+        public int getTickerStockPricesParallel(string symbol)
+        {
+            IEnumerable<StockPrice> tickerPull =
+                 from s in StockPrices.AsParallel()
+                 where s.ticker == symbol
+                 select s;
+            return tickerPull.Count();
         }
 
         public IEnumerator GetEnumerator()
         {
             throw new System.NotImplementedException();
         }
+
     }
 }
